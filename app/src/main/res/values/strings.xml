@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">HSDateBook</string>
+    <array name="Aisle">
+        <item>Please Select Category</item>
+        <item>Managers Special</item>
+        <item>Caned Food</item>
+        <item>Jars and Sauces</item>
+        <item>Cereal</item>
+        <item>Condiments and Spreads</item>
+        <item>Biscuits and Cakes</item>
+        <item>Bakery</item>
+        <item>Sweets and Chocolate</item>
+        <item>Crisps</item>
+        <item>Drinks</item>
+        <item>Baby Food</item>
+        <item>Till Baskets</item>
+        <item>Special Buy</item>
+        <item>Item Discounted</item>
+        <item>WareHouse Bulk Stock</item>
+    </array>
+
+    <string-array name="SortBy">
+        <item>Please Select Category</item>
+        <item>Sort By Date</item>
+        <item>Sort By Name</item>
+        <item>Sort By Aisle</item>
+        <item>Sort With In 4 weeks</item>
+        <item>Sort With In 3 weeks</item>
+        <item>Sort With In 2 weeks</item>
+        <item>Sort With In 1 weeks</item>
+        <item>Out Of Date</item>
+    </string-array>
+</resources>

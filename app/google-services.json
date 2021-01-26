@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "64784622674",
+    "firebase_url": "https://hsdatebook-2020.firebaseio.com",
+    "project_id": "hsdatebook-2020",
+    "storage_bucket": "hsdatebook-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64784622674:android:d8b44d74872f2c1e96eb8b",
+        "android_client_info": {
+          "package_name": "home.savers.hsdatebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64784622674-itf8fk5dhjsfrig8fjd64ld2fiav8ek1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "home.savers.hsdatebook",
+            "certificate_hash": "cec697fa9f36b7ded594ad6cfc543d9d100a2cb7"
+          }
+        },
+        {
+          "client_id": "64784622674-f7cies5ml5ldfslfiv0uq28dok3m4q1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPytOFLs9xFTk-xUdJ6K0eI2m22Lq6EfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64784622674-f7cies5ml5ldfslfiv0uq28dok3m4q1m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
