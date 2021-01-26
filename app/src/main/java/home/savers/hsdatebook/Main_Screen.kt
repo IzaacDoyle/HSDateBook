@@ -107,7 +107,7 @@ class Main_Screen : AppCompatActivity() {
         menuInflater.inflate(R.menu.main_screen_tab,menu)
         val item2: MenuItem = menu!!.findItem(R.id.Update1)
         item2.isVisible = false
-        val item3: MenuItem = menu!!.findItem(R.id.Update2)
+        val item3: MenuItem = menu.findItem(R.id.Update2)
         item3.isVisible = false
 
 
