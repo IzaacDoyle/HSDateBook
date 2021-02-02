@@ -24,8 +24,8 @@ class Product_View_Update : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.display_product_update)
-        val key = intent.getStringExtra("Key")
-        Log.d("key",key)
+      //  val key = intent.getStringExtra("Key")
+      //  Log.d("key",key)
 
 
 
@@ -36,7 +36,7 @@ class Product_View_Update : AppCompatActivity(){
 
         })
 
-        Toast.makeText(applicationContext, key,Toast.LENGTH_SHORT).show()
+       // Toast.makeText(applicationContext, key,Toast.LENGTH_SHORT).show()
 
 
 

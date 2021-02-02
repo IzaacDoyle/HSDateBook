@@ -20,6 +20,7 @@ import home.savers.hsdatebook.RecyclerView.productRec
 
 import java.security.Key
 import java.security.Timestamp
+import java.util.*
 import kotlin.math.log
 
 var update:Boolean = false
@@ -29,6 +30,8 @@ var database = FirebaseDatabase.getInstance()
 
 
 
+/*
+gets products
     fun getProductsRT() {
         db.collection("Products/Stock/OutOfDate").addSnapshotListener { value, error ->
             error?.let {
@@ -54,53 +57,19 @@ var database = FirebaseDatabase.getInstance()
 
 
                     }
-
-
-
                 }
             }
-
         }
 
-
-      /*db.collection("Products/Stock/OutOfDate")
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    for (document in task.result!!) {
-                        val key = document.id
-                        val day = document.getString("Day")
-                        val month = document.getString("Month")
-                        val year = document.getString("Year")
-                        val aisle = document.getString("Aisle")
-                        val productName = document.getString("ProductName")
-                        val quantity = document.getString("Quantity")
-                        val productBarcode = document.getString("ProductBarcode")
-
-
-
-                        productRec?.add(MainRecycleProd("$key", "$day", "$month", "$year", "$productName",
-                                "$quantity"
-                            )
-
-
-                        )
-
-
-
-                    }
-                    Log.d("Account", "$productRec")
-                }
-            }
-
-        Log.d("product", "$productRec")
-
-       */
     }
 
 
 
 
+ */
+
+
+//creates new products and saves to firebase firestore
     fun FBCreateNEWProd(
 
         Date:String,
@@ -113,11 +82,11 @@ var database = FirebaseDatabase.getInstance()
 
         var Product = hashMapOf(
 
-            "Date" to Date,
-            "ProductName" to ProductName,
-            "Quantity" to Quantity,
-            "ProductBarcode" to ProductBarcode,
-            "Aisle" to Aisle
+            "Date" to Date.toLowerCase(),
+            "ProductName" to ProductName.toLowerCase(),
+            "Quantity" to Quantity.toLowerCase(),
+            "ProductBarcode" to ProductBarcode.toLowerCase(),
+            "Aisle" to Aisle.toLowerCase()
         )
 
         db.collection("Products/Stock/OutOfDate").document()
@@ -135,6 +104,7 @@ var database = FirebaseDatabase.getInstance()
             .document(key.toString())
         return documentReference.delete()
     }
+
 
 
 

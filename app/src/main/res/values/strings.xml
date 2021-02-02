@@ -21,9 +21,9 @@
 
     <string-array name="SortBy">
         <item>Please Select Category</item>
-        <item>Sort By Date</item>
         <item>Sort By Name</item>
         <item>Sort By Aisle</item>
+        <item>Sort By Date</item>
         <item>Sort With In 4 weeks</item>
         <item>Sort With In 3 weeks</item>
         <item>Sort With In 2 weeks</item>

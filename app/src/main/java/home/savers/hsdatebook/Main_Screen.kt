@@ -35,13 +35,6 @@ class Main_Screen : AppCompatActivity() {
         Date = ArrayList()
 
 
-
-
-        getProductsRT()
-
-
-
-
        // val RecyclerAdaptor = RecyclerAdaptor(productRec!!, this)
       //  Product_RecycleView.layoutManager = LinearLayoutManager(this)
       // Product_RecycleView.adapter = RecyclerAdaptor

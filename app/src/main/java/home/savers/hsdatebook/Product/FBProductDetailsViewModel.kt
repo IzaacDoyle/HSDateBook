@@ -7,10 +7,7 @@ import androidx.core.view.isNotEmpty
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import home.savers.hsdatebook.Calendar.Days
@@ -18,7 +15,7 @@ import home.savers.hsdatebook.Calendar.Months
 import home.savers.hsdatebook.Calendar.Years
 import home.savers.hsdatebook.DataClass.MainRecycleProd
 import home.savers.hsdatebook.DataClass.Product
-import home.savers.hsdatebook.FireBase.getProductsRT
+
 
 import home.savers.hsdatebook.FireBase.update
 import home.savers.hsdatebook.RecyclerView.productRec
@@ -28,7 +25,7 @@ import kotlin.collections.ArrayList
 
 
 class FBProductDetailsViewModel : ViewModel() {
-    private lateinit var firestore: FirebaseFirestore
+    private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var products: MutableLiveData<ArrayList<Product>> = MutableLiveData<ArrayList<Product>>()
 
 
@@ -44,7 +41,7 @@ class FBProductDetailsViewModel : ViewModel() {
         super.onCleared()
     }
 
-    private fun getProducts() {
+    public fun getProducts() {
           firestore.collection("Products/Stock/OutOfDate").addSnapshotListener{
               snapshot, e->
 
@@ -70,6 +67,102 @@ class FBProductDetailsViewModel : ViewModel() {
 
     }
 
+    public fun productUpdate(){
+
+
+
+    }
+
+    public  fun productDelete(){
+
+    }
+
+    public fun SearchProductsName(productName:String) {
+        firestore.collection("Products/Stock/OutOfDate").orderBy("ProductName")
+            .startAt(productName).endAt("$productName\uf8ff")
+            .get()
+            .addOnSuccessListener { snapshot ->
+                val searchProduct = ArrayList<Product>()
+                if (snapshot != null) {
+                    val documents = snapshot.documents
+                    documents.forEach {
+                        val sproducts = it.toObject(Product::class.java)
+                        if (sproducts != null) {
+
+                            searchProduct.add(sproducts!!)
+                            Log.d("SearchsProd", "$sproducts")
+                        }else{
+                            Log.d("ErrorSearchsProd","$sproducts")
+                        }
+                    }
+                }else{
+                    Log.d("ErrorSearchsProd","$snapshot")
+                }
+                products.value = searchProduct
+
+                if (productName.isEmpty() || productName.isNullOrBlank()){
+                    getProducts()
+
+                }
+            }
+
+
+        /*
+        firestore.collection("Products/Stock/OutOfDate").orderBy("Aisle")
+            .startAt(productName).endAt("$productName\uf8ff")
+            .get()
+            .addOnSuccessListener { snapshot ->
+                val searchProduct = ArrayList<Product>()
+                if (snapshot != null) {
+                    val documents = snapshot.documents
+                    documents.forEach {
+                        val sproducts = it.toObject(Product::class.java)
+                        if (sproducts != null) {
+
+                            searchProduct.add(sproducts!!)
+                            Log.d("SearchsProd", "$sproducts")
+                        }else{
+                            Log.d("ErrorSearchsProd","$sproducts")
+                        }
+                    }
+                }else{
+                    Log.d("ErrorSearchsProd","$snapshot")
+                }
+                products.value = searchProduct
+
+            }
+
+         */
+/*
+        firestore.collection("Products/Stock/OutOfDate").orderBy("ProductBarcode")
+            .startAt(productName).endAt("$productName\uf8ff")
+            .get()
+            .addOnSuccessListener { snapshot ->
+                val searchProduct = ArrayList<Product>()
+                if (snapshot != null) {
+                    val documents = snapshot.documents
+                    documents.forEach {
+                        val sproducts = it.toObject(Product::class.java)
+                        if (sproducts != null) {
+
+                            searchProduct.add(sproducts!!)
+                            Log.d("SearchsProd", "$sproducts")
+                        }else{
+                            Log.d("ErrorSearchsProd","$sproducts")
+                        }
+                    }
+                }else{
+                    Log.d("ErrorSearchsProd","$snapshot")
+                }
+                products.value = searchProduct
+
+            }
+
+ */
+            }
+
+
+    
 
 
 
@@ -77,6 +170,8 @@ class FBProductDetailsViewModel : ViewModel() {
     get() {return  products }
     set(value){ products = value}
 }
+
+
 
 
 
